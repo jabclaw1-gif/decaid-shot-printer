@@ -115,3 +115,7 @@ most receipt printers cannot print other characters with their default settings.
 - **Paper is not cut.** The printer has no cutter, or the cutter is disabled in
   its own settings. Turn off **Cut paper**.
 - Plugin log lines start with `[shot-printer]` in the Decaid logs.
+
+## License
+
+[MIT](LICENSE)
