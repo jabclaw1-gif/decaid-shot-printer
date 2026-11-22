@@ -1,0 +1,85 @@
+{
+  "id": "shot-printer.reaplugin",
+  "author": "jabclaw1-gif",
+  "name": "Shot Printer",
+  "description": "Prints the shot graph and shot details on a network (ESC/POS) receipt printer after every shot, or on demand.",
+  "version": "0.2.1",
+  "apiVersion": 1,
+  "permissions": [
+    "log",
+    "api",
+    "events.shots",
+    "network.tcp"
+  ],
+  "settings": {
+    "PrinterHost": {
+      "type": "string",
+      "label": "Printer IP address",
+      "description": "IP address or hostname of the receipt printer on your network, for example 192.168.1.50. Most printers print it on a self-test page (hold the feed button while switching on)."
+    },
+    "PrinterPort": {
+      "type": "number",
+      "label": "Printer port",
+      "default": 9100,
+      "description": "Raw printing port. Almost every network receipt printer uses 9100."
+    },
+    "PaperWidth": {
+      "type": "enum",
+      "label": "Paper width",
+      "values": ["80mm", "58mm"],
+      "default": "80mm",
+      "description": "Width of the receipt paper roll."
+    },
+    "AutoPrint": {
+      "type": "boolean",
+      "label": "Print every shot automatically",
+      "default": true,
+      "description": "Print a receipt as soon as each shot is saved. Turn off to print only from the preview page."
+    },
+    "MinShotSeconds": {
+      "type": "number",
+      "label": "Minimum shot length",
+      "default": 10,
+      "description": "Shots shorter than this many seconds (flushes, aborted shots) are not printed automatically."
+    },
+    "HeaderText": {
+      "type": "string",
+      "label": "Header text",
+      "description": "Optional line printed large at the top, such as your cafe name."
+    },
+    "FooterText": {
+      "type": "string",
+      "label": "Footer text",
+      "description": "Optional line printed at the bottom of the receipt."
+    },
+    "ShowTargets": {
+      "type": "boolean",
+      "label": "Show target curves",
+      "default": false,
+      "description": "Also draw the profile's pressure and flow targets as thin dotted lines."
+    },
+    "CutPaper": {
+      "type": "boolean",
+      "label": "Cut paper",
+      "default": true,
+      "description": "Cut the paper after printing. Turn off for printers without a cutter."
+    }
+  },
+  "api": [
+    {
+      "id": "preview",
+      "type": "http",
+      "data": {}
+    },
+    {
+      "id": "print",
+      "type": "http",
+      "data": {}
+    },
+    {
+      "id": "status",
+      "type": "http",
+      "data": {}
+    }
+  ]
+}
